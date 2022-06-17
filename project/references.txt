@@ -1,0 +1,3 @@
+Spotify:
+- Get Recently played tracks == https://developer.spotify.com/documentation/web-api/reference/#/operations/get-recently-played
+- Spotify authorisation == https://developer.spotify.com/documentation/general/guides/authorization/

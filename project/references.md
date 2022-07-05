@@ -1,4 +1,4 @@
-Spotify:
+<h2>Spotify:</h2>
 - Get Recently played tracks == https://developer.spotify.com/documentation/web-api/reference/#/operations/get-recently-played
     - How are the recently played songs calculated? -- tested on the 17/06/22
 
@@ -15,3 +15,35 @@ Spotify:
     - Will the limit of receiving the 50 latest songs be an issue?
 <br>
 - Spotify authorisation == https://developer.spotify.com/documentation/general/guides/authorization/
+<br>
+<br>
+<h2>apple Health table</h2>
+
+| Column | Datatype | Values |
+| ---- | ---- | ---|
+| Type || ['DistanceWalkingRunning' 'StepCount' 'SleepAnalysis''HeadphoneAudioExposure' 'WalkingDoubleSupportPercentage' 'WalkingSpeed''WalkingStepLength' 'FlightsClimbed' 'ActiveEnergyBurned''DietaryFatSaturated' 'DietaryFiber' 'DietaryFatTotal' 'DietaryProtein''DietaryCarbohydrates' 'DietarySugar' 'DietaryEnergyConsumed''DietaryPotassium' 'DietarySodium' 'DietaryCholesterol''WalkingAsymmetryPercentage' 'AppleWalkingSteadiness' nan 'HeadphoneAudioExposureEvent' 'HKDataTypeSleepDurationGoal''DistanceCycling' 'BodyMass' 'Height' 'MindfulSession'] |
+| sourceName |||
+| value |||
+| unit || ['km' 'count' nan 'dBASPL' '%' 'km/hr' 'cm' 'kcal' 'g' 'mg' 'hr' 'kg' 'ft']|
+| startDate|||
+| endDate|||
+| creationDate|||
+| subIndex|||
+| HKMetadataKeyAudioExposureDuration|||
+| totalEnergyBurned|||
+| totalDistanceUnit|||
+| workoutActivityType|| [nan 'HKWorkoutActivityTypeFunctionalStrengthTraining'
+ 'HKWorkoutActivityTypeCycling']|
+| Meal|| [nan 'Snack' 'Lunch' 'Breakfast' 'Dinner']|
+| durationUnit|| [nan 'min']|
+| totalEnergyBurnedUnit|| [nan 'kcal']|
+| HKExternalUUID|||
+| HKTimeZone|||
+| HKMetadataKeyAudioExposureLevel|||
+| totalDistance|||
+| HKFoodType|||
+| duration|||
+| HKDeviceName|||
+| Amount|||
+||||
+||||

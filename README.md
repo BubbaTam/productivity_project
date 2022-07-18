@@ -19,6 +19,8 @@ I am interested in increasing my daily productivity by understanding how I use m
 
 ## Build Status
 Currently on on the iteration of creating the Data Pipelines from relevant data sources to a central database [ -- SSOT: Single Source of Truth](https://en.wikipedia.org/wiki/Single_source_of_truth).
+
+To view documentation go to [PROJECT FOLDER](https://github.com/BubbaTam/time_tracker/tree/main/project)
 ## Code Style
 
 ## Visual Aids

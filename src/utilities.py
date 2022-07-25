@@ -1,4 +1,6 @@
+import os
 import datetime
+import json
 
 def time_at_start_yesterday():
     """ return time at 00:00:00 yesterday in unix timestamp milliseconds """
@@ -17,3 +19,9 @@ def time_now():
     now = datetime.datetime.now()
     unix_now = int(now.timestamp()) * 1000
     print(unix_now)
+
+def save_json_file(data_variable,folder_location, file_name:str,):
+    json_file = json.dumps(data_variable)
+    path_file = os.path.join(folder_location, file_name +".json")
+    with open(path_file,'w') as f:
+        f.write(json_file)

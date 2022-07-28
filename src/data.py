@@ -6,17 +6,50 @@ import xml.etree.ElementTree as ET
 import datetime as dt
 import mysql.connector
 from mysql.connector import Error
-from config_priv import SqlDetails
 import pandas as pd
 from mysql.connector import Error
 import json
 
-from config import PROCESSED_DATA_FOLDER, RAW_DATA_FILE, MUSIC_JSON_FILE
+from config import PROCESSED_DATA_FOLDER, RAW_DATA_FILE, MUSIC_JSON_FILE, RAW_DATA_FOLDER
+from config_priv import SqlDetails
+from src.utilities import save_json_file
 #notes
 # send the original data to raw data
 
 
 class SpotifyClass():
+    def extract_spotify_data(data):
+        song_names = []
+        artist_names = []
+        played_at_list = []
+        timestamps = []
+        try:
+            for song in data["items"]:
+                song_names.append(song["track"]["name"])
+                played_at_list.append(song["played_at"])
+                timestamps.append(song["played_at"][0:10])
+                artist_names_for_song =[]
+                for artists in song["track"]["album"]["artists"]:
+                    artist_names_for_song.append(artists["name"])
+                artist_names.append(artist_names_for_song)
+        except:
+            print("there is a problem before getting data from api")
+
+        # Prepare a dictionary in order to turn it into a pandas dataframe below
+        try:
+            song_dict = {
+                "song_name" : song_names,
+                "artist_name": artist_names,
+                "played_at" : played_at_list,
+                "timestamp" : timestamps
+            }
+        except:
+            print("There is a problem moving data into a dataframe")
+        try:
+            save_json_file(song_dict,RAW_DATA_FOLDER,"today_music")
+        except:
+            print("there is a problem saving to file")
+        return song_dict
 
     def load_data_to_sql():
         """

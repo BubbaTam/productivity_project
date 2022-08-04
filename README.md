@@ -2,7 +2,7 @@
 
 ## Contents
 * [Motivation](#motivation)
-* [Background (Customer-Centric Value Approach)](#Background-(Customer-Centric-Value-Approach))
+* [Background](#Background)
 * [Solution](#Solution)
 * [Build Status](#build-status)
 * [Code Style](#code-style)
@@ -18,24 +18,18 @@
 ## Motivation
 I am interested in increasing my daily productivity by understanding how I use my time. I also have implementations I would like to add to my daily processes; I would like to evaluate the impact of changes by having data before and after the change.
 
-## Background (Customer-Centric Value Approach)
+## Background
 
 #### Customer
-- A person who is interested in how they are using their time
+- A person who is interested in how they use their time
 #### Goal
 - A desire to align daily activities with goals (daily, weekly, monthly, quarterly, yearly)
-- Accountability towards their goals and keeping to constraints
-- Mindful of how the individual uses their resources (Time, attention, Energy, Focus, etc.) but to a level that does not require much input from the individual
-- For the user to easily evaluate their progress
-- Measure how well keeping up with beliefs (self-talk), character traits, skills
-- If I am doing high valued tasks or not
-- How well am I using my time
-- A way to experiment with changes to their activities
 #### Pains
-- An application to keep an individual accountable toward goals and expectations
-- Having real-time reminders on time usage
-- A location to store and keep track of goals
-- Awareness of themselves: patterns in an individuals lifestyle such as most productive periods in the day and triggers for bad habits, is their current activity aligned with goals
+- Doing activities that aren't of value
+- Dismissive awareness of their patterns
+- Inadequate accountability for actions
+- Insufficient emotional control
+- Awareness of the short, medium and long-term consequences of actions 
 #### Gains
 - A central location to keep track of goals, expectations, constraints and a form of accountability for how the individual uses their time
 
@@ -44,18 +38,32 @@ I am interested in increasing my daily productivity by understanding how I use m
 | That being aware of actions and reflecting on decisions made will help on progression toward personally set goals | | |
 ### Value Proposition
 #### Product
+- An application for users to store goals (professional, lifestyle, etc.) and aid with their goal execution (A personal task management application)
 #### Alleviates
+- Accountability to follow through with goals
 #### Advantages
+- A central location for personal goal setting and goal execution by helping the user keep accountability
 #### Objectives
-- Release 1 == Is to focus on the Data engineering from multiple data sources
+- To create a central location to keep track of goals, expectations, constraints and a form of accountability for how the individual uses their time
+- Real-time updates on activities the user is doing to aid with accountability
+- An interface to see general metrics and the progress of metrics related to goals and objectives
+- For the user to input feedback on activities and goals
 ## Solution
 ### Features (to meet objectives)
--  An interface to see a real-time update on data
+- An interface to see a real-time update on data
+- The ability to connect to applications that have metrics that measure metrics for specific goals
+- Input for activities the user does not want to do
+- Input for reflection
 ### Integration
+- UI/UX for the interface
 - Responsibility of the individual to track the data points
 - Reflection periods (during the day and weekly)
+### Alternatives
 ### Constraints
+- I initially do not plan to put money into this
 ### Out-of-Scope
+- Money tracking
+- ML and text understanding
 ##### Decisions
 | DACI|||||
 | ---- | ---- | ---- | ---- | ---- |

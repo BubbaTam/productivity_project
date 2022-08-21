@@ -10,8 +10,8 @@ import pandas as pd
 from mysql.connector import Error
 import json
 
-from config import PROCESSED_DATA_FOLDER, RAW_DATA_FILE, MUSIC_JSON_FILE, RAW_DATA_FOLDER
-from config_priv import SqlDetails
+from config import PROCESSED_DATA_FOLDER, RAW_DATA_FILE, MUSIC_JSON_FILE, RAW_DATA_FOLDER, HEALTH_DATA_PROCESS
+from config_priv import SqlDetailsWSL
 from src.utilities import save_json_file
 #notes
 # send the original data to raw data
@@ -59,12 +59,35 @@ class SpotifyClass():
         with open(MUSIC_JSON_FILE) as f:
             json_data = json.load(f)
         try:
-            connection = mysql.connector.connect(host=SqlDetails.host,
-                                                 user=SqlDetails.user,
-                                                 password=SqlDetails.password,
-                                                 database=SqlDetails.database
+            connection = mysql.connector.connect(host=SqlDetailsWSL.host,
+                                                 user=SqlDetailsWSL.user,
+                                                 password=SqlDetailsWSL.password,
                                                  )
 
+            sql_query_personal_tracking_database = """
+            CREATE DATABASE IF NOT EXISTS personal_tracking;
+            """
+            if connection.is_connected():
+                db_Info = connection.get_server_info()
+                print("Connected to MySQL Server version ", db_Info)
+                cursor = connection.cursor()
+
+                #queries:
+                cursor.execute(sql_query_personal_tracking_database)
+        except Error as e:
+            print("Error while connecting to MySQL", e)
+        finally:
+            if connection.is_connected():
+                cursor.close()
+                connection.close()
+                print("MySQL connection is closed")
+
+        try:
+            connection = mysql.connector.connect(host=SqlDetailsWSL.host,
+                                                 user=SqlDetailsWSL.user,
+                                                 password=SqlDetailsWSL.password,
+                                                 database=SqlDetailsWSL.database
+                                                 )
             sql_query_create_table = """
             CREATE TABLE IF NOT EXISTS `personal_tracking`.`my_played_tracks`(
                 song_name VARCHAR(200),
@@ -82,7 +105,6 @@ class SpotifyClass():
                 cursor = connection.cursor()
 
                 #queries:
-
                 cursor.execute(sql_query_create_table)
                 for count,value in enumerate(json_data['song_name']):
                     cursor.execute("INSERT INTO `personal_tracking`.`my_played_tracks` VALUES ('{}',{},'{}',{})".format(

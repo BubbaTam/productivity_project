@@ -17,7 +17,7 @@
 - Spotify authorisation == https://developer.spotify.com/documentation/general/guides/authorization/
 <br>
 <br>
-<h2>apple Health table</h2>
+<h2>Apple Health Table</h2>
 
 | Column | Datatype | Values |
 | ---- | ---- | ---|
@@ -47,3 +47,5 @@
 | Amount|||
 ||||
 ||||
+
+<h2> Sleep Data</h2> 

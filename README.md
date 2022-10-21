@@ -29,7 +29,7 @@ I am interested in increasing my daily productivity by understanding how I use m
 - Dismissive awareness of their patterns
 - Inadequate accountability for actions
 - Insufficient emotional control
-- Awareness of the short, medium and long-term consequences of actions 
+- Awareness of the short, medium and long-term consequences of actions
 #### Gains
 - A central location to keep track of goals, expectations, constraints and a form of accountability for how the individual uses their time
 
@@ -64,6 +64,7 @@ I am interested in increasing my daily productivity by understanding how I use m
 ### Out-of-Scope
 - Money tracking
 - ML and text understanding
+- The use of Docker for Airflow
 ##### Decisions
 | DACI|||||
 | ---- | ---- | ---- | ---- | ---- |

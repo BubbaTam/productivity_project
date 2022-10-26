@@ -25,3 +25,6 @@ def save_json_file(data_variable,folder_location, file_name:str,):
     path_file = os.path.join(folder_location, file_name +".json")
     with open(path_file,'w') as f:
         f.write(json_file)
+
+def dummy_sql_statement():
+    return "select 2+2;"

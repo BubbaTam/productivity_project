@@ -60,11 +60,8 @@ class SpotifyClass():
             """To deal with if they don't already have a session token or if their token has expired """
             with open(TOKEN_LOCATION,"r") as f:
                 token_data = json.load(f)
-            time_now = int(time.time())
-            is_token_expired = token_data['expires_at'] - time_now < 60
-            if is_token_expired:
-                oauth = create_spotify_oauth()
-                token_info = oauth.refresh_access_token(token_data["refresh_token"])
+            oauth = create_spotify_oauth()
+            token_info = oauth.refresh_access_token(token_data["refresh_token"])
             return token_info
         def recently_played():
             print("start of recently played")

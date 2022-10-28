@@ -61,8 +61,8 @@ class SpotifyClass():
             with open(TOKEN_LOCATION,"r") as f:
                 token_data = json.load(f)
             oauth = create_spotify_oauth()
-            token_info = oauth.refresh_access_token(token_data["refresh_token"])
-            return token_info
+            token = oauth.refresh_access_token(token_data["refresh_token"])
+            return token
         def recently_played():
             print("start of recently played")
             try:

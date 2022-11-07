@@ -154,7 +154,7 @@ class SpotifyClass():
             with open(SPOTIFY_SQL_FILE,"w") as f:
                 f.write(sql_string)
         else:
-            sql_string = """INSERT INTO `personal_tracking`.`my_played_tracks`
+            sql_string = """INSERT IGNORE INTO `personal_tracking`.`my_played_tracks`
                         VALUES """
             for count,value in enumerate(json_data['song_name']):
                 song_name = str(json_data["song_name"][count]).replace("'","''")

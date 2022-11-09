@@ -6,7 +6,8 @@ from airflow.operators.mysql_operator import MySqlOperator
 from datetime import timedelta
 import pendulum
 
-from config_priv import PERSONAL_EMAIL
+from config_priv import SQL_LOCATION
+#from config_priv import PERSONAL_EMAIL
 
 
 def get_recently_played_data_from_spotify(time_of_dag):
@@ -24,16 +25,21 @@ def get_recently_played_data_from_spotify(time_of_dag):
 
 
 def json_data_to_sql_file():
+    import os
+
+    from config_priv import WORKING_DIRECTORY
     from src.data import SpotifyClass
+
+    os.chdir(WORKING_DIRECTORY)
     SpotifyClass.transform_data_to_sql_file()
 
 args = {
 
     "owner": "bubba_tam",
     "start_date": pendulum.datetime(2022, 10, 21, tz="Europe/London"),
-    "email" : [PERSONAL_EMAIL],
-    "email_on_failure" : True,
-    "email_on_retry" : True,
+    #"email" : [PERSONAL_EMAIL],
+    #"email_on_failure" : True,
+    #"email_on_retry" : True,
     "retries" : 1,
     "retry_delay" : timedelta(seconds=20)
 }

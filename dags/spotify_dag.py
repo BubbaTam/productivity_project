@@ -9,9 +9,17 @@ import pendulum
 from config_priv import PERSONAL_EMAIL
 
 
-def get_recently_played_data_from_spotify():
+def get_recently_played_data_from_spotify(time_of_dag):
+    import os
+
+    from config_priv import WORKING_DIRECTORY
     from src.data import SpotifyClass
-    SpotifyClass.get_data_from_spotify_api()
+    from src.utilities import ISO_8601_to_unix_timestamp_milliseconds
+
+    os.chdir(WORKING_DIRECTORY)
+
+    time = ISO_8601_to_unix_timestamp_milliseconds(time_of_dag,"%Y-%m-%dT%H:%M:%S%z")
+    SpotifyClass.get_data_from_spotify_api(time)
 
 
 
@@ -33,15 +41,21 @@ args = {
 dag = DAG(
     dag_id = "spotify_data_dag",
     default_args=args,
+    # at minute 0 (every new full hour)
+    #schedule_interval = "0 * * * *",
     # CRON expression for 19:45
-    schedule_interval = "45 19 * * *",
-    template_searchpath="src/sql_queries",
+    #schedule_interval = "45 19 * * *",
+    schedule_interval = "@hourly",
+    template_searchpath=SQL_LOCATION,
     catchup=False)
 
 with dag:
     get_spotify_data = PythonOperator(
         task_id="extract_spotify_data",
-        python_callable = get_recently_played_data_from_spotify
+        python_callable = get_recently_played_data_from_spotify,
+        op_kwargs={
+            'time_of_dag': '{{ ts }}'
+        }
     )
     load_data_to_sql_file = PythonOperator(
         task_id="transfer_data_to_sql_file",

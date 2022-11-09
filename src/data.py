@@ -48,7 +48,7 @@ class SpotifyClass():
         except:
             print("there is a problem saving to file")
         return song_dict
-    def get_data_from_spotify_api():
+    def get_data_from_spotify_api(time):
         def create_spotify_oauth():
             return SpotifyOAuth(
                 client_id = SPOTIFY_CLIENT_ID,
@@ -63,16 +63,15 @@ class SpotifyClass():
             oauth = create_spotify_oauth()
             token = oauth.refresh_access_token(token_data["refresh_token"])
             return token
-        def recently_played():
-            print("start of recently played")
-            try:
-                token_info = get_token()
-            except:
-                print("no log in details")
+
+        try:
+            token_info = get_token()
             sp = spotipy.Spotify(auth=token_info["access_token"])
-            data = sp.current_user_recently_played(limit=50,after=time_at_start_today())
+            data = sp.current_user_recently_played(limit=50,after=time)
             SpotifyClass.extract_spotify_data(data)
-        return recently_played()
+        except:
+            raise ValueError("no log in details")
+
     def load_data_to_sql():
         """
         will need to transform beforehand

@@ -28,3 +28,17 @@ def save_json_file(data_variable,folder_location, file_name:str,):
 
 def dummy_sql_statement():
     return "select 2+2;"
+
+def ISO_8601_to_unix_timestamp_milliseconds(time:str, time_format:str)-> str:
+    """
+    Return the conversion of a time string to unix timestamp milliseconds
+
+    Examples time format strings:
+
+    2022-11-09T09:55:19+00:00 == "%Y-%m-%dT%H:%M:%S%z"
+
+    2022-11-09 == "%Y-%m-%d"
+    """
+    datetime_object = datetime.datetime.strptime(time, time_format)
+    time = int(datetime_object.timestamp()) *1000
+    return time

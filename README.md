@@ -16,7 +16,7 @@
 * [License](#license)
 
 ## Motivation
-I am interested in increasing my daily productivity by understanding how I use my time. I also have implementations I would like to add to my daily processes; I would like to evaluate the impact of changes by having data before and after the change.
+I am interested in increasing my daily productivity by understanding how I use my resources (time, attention, energy, money, health, e.t.c). I would like evaluate the impact that lifestyle have on achieving goals and objectives.
 
 ## Background
 

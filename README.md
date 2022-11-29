@@ -16,7 +16,7 @@
 * [License](#license)
 
 ## Motivation
-I am interested in increasing my daily productivity by understanding how I use my resources (time, attention, energy, money, health, e.t.c). I would like evaluate the impact that lifestyle have on achieving goals and objectives.
+I am interested in increasing my daily productivity by understanding how I use my resources (time, attention, energy, money, health, etc.). I would also like to evaluate the impact that lifestyle changes have.
 
 ## Background
 

@@ -7,7 +7,6 @@ from datetime import timedelta
 import pendulum
 
 from config_priv import SQL_LOCATION
-#from config_priv import PERSONAL_EMAIL
 
 
 def get_recently_played_data_from_spotify(time_of_dag):
@@ -53,7 +52,7 @@ dag = DAG(
     #schedule_interval = "45 19 * * *",
     schedule_interval = "@hourly",
     template_searchpath=SQL_LOCATION,
-    catchup=False)
+    catchup=True)
 
 with dag:
     get_spotify_data = PythonOperator(
